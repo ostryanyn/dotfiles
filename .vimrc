@@ -1,25 +1,15 @@
+" okay let's ride
+set nocompatible
+
+" Plugins
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+let g:ctrlp_map = '<Leader>p'
+let g:ctrlp_cmd = 'CtrlPBuffer'
+
 " Mappings
 map <Leader><CR> :nohl<CR>:syntax sync fromstart<CR>
 map <Leader>w :w<CR>
-
-execute "set <M-1>=\e1"
-execute "set <M-2>=\e2"
-execute "set <M-3>=\e3"
-execute "set <M-4>=\e4"
-execute "set <M-5>=\e5"
-execute "set <M-6>=\e6"
-execute "set <M-7>=\e7"
-execute "set <M-8>=\e8"
-execute "set <M-9>=\e9"
-map <M-1> :tabnext 1<CR>
-map <M-2> :tabnext 2<CR>
-map <M-3> :tabnext 3<CR>
-map <M-4> :tabnext 4<CR>
-map <M-5> :tabnext 5<CR>
-map <M-6> :tabnext 6<CR>
-map <M-7> :tabnext 7<CR>
-map <M-8> :tabnext 8<CR>
-map <M-9> :tabnext 9<CR>
 
 map <Leader>` :syntax sync fromstart<CR>
 
@@ -28,48 +18,52 @@ map <Leader>k :bd<CR>
 map j gj
 map k gk
 
-"
-" set expandtab
-" set smarttab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+" Search
+set ignorecase
+set hlsearch						" highlight search match
+set incsearch						" instant search
 
+" Tabs
+"set expandtab						" use spaces instead of tab (insert)
+"set smarttab
+set shiftwidth=0					" shiftwidth = tabstop
+set tabstop=4						" tab size
+"set softtabstop=0
+
+" Indentation
 set autoindent
 set smartindent
-set cindent
+" set cindent
 
-set ignorecase
-set hlsearch
-set incsearch
-set magic
-
-set cursorline
-set rnu
-set foldcolumn=3
+" Window
 set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-set laststatus=2
+set laststatus=2					" always show status line
+set list lcs=tab:<\ ,space:·,eol:$	" highlight whitespace
+set cursorline						" highlight cursor line
+set colorcolumn=73					" highlight 73d column
+set foldcolumn=3					" fold column size
+set nowrap							" do not wrap lines
+set rnu								" show relative linum
 
-set nowrap
-set colorcolumn=73
+" Backup
+set writebackup						" backup before writing
+set nobackup						" do not save backup
 
-set showmatch
-set list lcs=tab:<\ ,space:·,eol:$
-
-set wildmenu
-
-set autochdir
-
-set encoding=utf8
-set fileformats=unix,dos,mac
-
-set nobackup
-set nowritebackup
+" Buffers
 set noswapfile
 
 set mouse=a
 
-"
+filetype on
+filetype plugin on
+filetype indent on
+
+set wildmenu
+
+set encoding=utf8
+set fileformats=unix,dos,mac
+
+" 
 syntax enable
 
 " .vim/colors/zenburn.vim
