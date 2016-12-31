@@ -2,7 +2,7 @@
 set nocompatible
 
 " Plugins
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+execute pathogen#infect()
 
 let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlPBuffer'
