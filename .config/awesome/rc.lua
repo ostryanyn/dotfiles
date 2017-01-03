@@ -53,7 +53,7 @@ end
 beautiful.init(awful.util.getdir("config") .. "/themes/ajastaika/theme.lua") -- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "termite" -- xterm
+terminal = "urxvt" -- xterm
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -297,7 +297,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
-    awful.key({ modkey }, "`", function () scratch.drop("termite", "bottom", nil, 1, 0.40) end),
+    awful.key({ modkey }, "`", function () scratch.drop("urxvt-scratch", "bottom", nil, 1, 0.40) end),
 
     awful.key({ modkey,           }, "j",
         function ()
