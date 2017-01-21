@@ -4,12 +4,26 @@ set nocompatible
 " Plugins
 execute pathogen#infect()
 
-let g:ctrlp_map = '<Leader>p'
+" Plugins / ctrlp
+let g:ctrlp_map = ','
 let g:ctrlp_cmd = 'CtrlPBuffer'
+
+" Plugins / syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Mappings
 map <Leader><CR> :nohl<CR>:syntax sync fromstart<CR>
 map <Leader>w :w<CR>
+
+map <Leader>q :qa<CR>
+map <Leader>e :e!<CR>
 
 map <Leader>` :syntax sync fromstart<CR>
 
@@ -17,6 +31,15 @@ map <Leader>k :bd<CR>
 
 map j gj
 map k gk
+
+no <down> <Nop>
+no <left> <Nop>
+no <right> <Nop>
+no <up> <Nop>
+ino <down> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+ino <up> <Nop>
 
 " Search
 set ignorecase
@@ -38,7 +61,7 @@ set smartindent
 " Window
 set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set laststatus=2					" always show status line
-set list lcs=tab:<\ ,space:·,eol:$	" highlight whitespace
+set list lcs=tab:>\ ,space:·,eol:$	" highlight whitespace
 set cursorline						" highlight cursor line
 set colorcolumn=73					" highlight 73d column
 set foldcolumn=3					" fold column size
@@ -50,7 +73,14 @@ set writebackup						" backup before writing
 set nobackup						" do not save backup
 
 " Buffers
+set hidden							" hide edited buffers
 set noswapfile
+
+" Folds
+set foldmethod=marker
+
+" Sessions
+set sessionoptions=folds,buffers,sesdir,localoptions
 
 set mouse=a
 
