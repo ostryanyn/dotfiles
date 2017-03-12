@@ -16,4 +16,7 @@ sort -u .bash_history -o .bash_history
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
+xbindkeys
+xcompmgr -C &
+
 exec awesome
