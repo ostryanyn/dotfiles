@@ -29,7 +29,7 @@ install_vim() {
 
 	# Write new configuration
 	mkdir ~/.vim
-	rsync -r $DOTFILES/.vim ~/.vim
+	rsync -r $DOTFILES/.vim/ ~/.vim/
 	rsync -r $DOTFILES/.vimrc ~/.vimrc
 }
 install_vim
