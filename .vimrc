@@ -70,7 +70,7 @@ set smartindent
 " Window
 set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set laststatus=2					" always show status line
-set list lcs=tab:\ \ ,space:·,eol:$	" highlight whitespace
+set list lcs=tab:\ \ ,eol:$	" highlight whitespace
 set cursorline						" highlight cursor line
 set colorcolumn=73					" highlight 73d column
 set foldcolumn=3					" fold column size
