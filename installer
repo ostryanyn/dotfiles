@@ -1,0 +1,35 @@
+#!/bin/bash
+usage() {
+	echo "Usage: $0 install | update"
+}
+#if [  $# -le 1 ]
+#then
+#	usage
+#	exit 1
+#fi
+#if [[ ( $# == "--help") ||  $# == "-h" ]]
+#then
+#	usage
+#	exit 0
+#fi
+DOTFILES="`dirname \"$0\"`"
+DOTFILES="`( cd \"$DOTFILES\" && pwd )`"
+
+install_vim() {
+	# Download plugins
+	echo "Downloading vim plugins..."
+	mkdir -p .vim/bundle
+	cd .vim/bundle
+	while read p && [[ -n "$p" ]]; do
+		git clone $p
+	done < "$DOTFILES/.vim/bundle.list"
+
+	# Remove existing configuration
+	rm -r ~/.vim ~/.vimrc > /dev/null 2>&1
+
+	# Write new configuration
+	mkdir ~/.vim
+	rsync -r $DOTFILES/.vim ~/.vim
+	rsync -r $DOTFILES/.vimrc ~/.vimrc
+}
+install_vim
