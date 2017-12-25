@@ -19,9 +19,8 @@ install_vim() {
 	# Download plugins
 	echo "Downloading vim plugins..."
 	mkdir -p .vim/bundle
-	cd .vim/bundle
 	while read p && [[ -n "$p" ]]; do
-		git clone $p
+		git -C .vim/bundle clone $p
 	done < "$DOTFILES/.vim/bundle.list"
 
 	# Remove existing configuration

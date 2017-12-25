@@ -20,10 +20,12 @@ export TERM=rxvt-256color
 
 #}}}
 # Alias {{{
+
 #source /usr/bin/virtualenvwrapper.sh
 alias ls='ls --color=auto'
 
 alias vv='vim --servername ANDROMEDA'
 
 alias h=evaluate_command_from_history
+
 #}}}
