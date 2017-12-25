@@ -1,4 +1,4 @@
-cool_name_1() {
+evaluate_command_from_history() {
 	if [ -z $1 ]; then
 		return
 	fi
