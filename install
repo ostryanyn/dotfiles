@@ -1,17 +1,18 @@
 #!/bin/bash
 usage() {
-	echo "Usage: $0 install | update"
+	echo "Usage: $0 [all | vim | tmux]"
 }
-#if [  $# -le 1 ]
-#then
-#	usage
-#	exit 1
-#fi
-#if [[ ( $# == "--help") ||  $# == "-h" ]]
-#then
-#	usage
-#	exit 0
-#fi
+if [  $# -le 0 ]
+then
+	usage
+	exit 1
+fi
+if [[ ( $# == "--help") ||  $# == "-h" ]]
+then
+	usage
+	exit 0
+fi
+
 DOTFILES="`dirname \"$0\"`"
 DOTFILES="`( cd \"$DOTFILES\" && pwd )`"
 
@@ -31,4 +32,26 @@ install_vim() {
 	rsync -r $DOTFILES/.vim/ ~/.vim/
 	rsync -r $DOTFILES/.vimrc ~/.vimrc
 }
-install_vim
+install_tmux() {
+	# Remove existing configuration
+	rm -rf ~/.tmux.conf
+
+	# Write new configuration
+	rsync -r $DOTFILES/.tmux.conf ~/.tmux.conf
+}
+
+case "$1" in
+	all)
+		install_vim
+		install_tmux
+		;;
+	vim)
+		install_vim
+		;;
+	tmux)
+		install_tmux
+		;;
+	*)
+		usage
+		exit 1
+esac
