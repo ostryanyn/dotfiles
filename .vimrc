@@ -58,7 +58,7 @@ set incsearch						" instant search
 " Tabs
 "set expandtab						" use spaces instead of tab (insert)
 "set smarttab
-set shiftwidth=0					" shiftwidth = tabstop
+set shiftwidth=4					" shiftwidth = tabstop
 set tabstop=4						" tab size
 "set softtabstop=0
 
